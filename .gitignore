@@ -1,3 +1,12 @@
+# ─── Project-specific ignores ────────────────────────────────────────────────
+catboost_info/
+logs/
+*.log
+notebooks/.ipynb_checkpoints/
+*.pkl
+*.egg-info/
+
+# ─── Python standard ignores ─────────────────────────────────────────────────
 # Byte-compiled / optimized / DLL files
 artifacts/
 __pycache__/

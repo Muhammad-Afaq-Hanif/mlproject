@@ -1,0 +1,10 @@
+{
+    "python.defaultInterpreterPath": "C:\\Users\\MEGA\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "python.pythonPath": "C:\\Users\\MEGA\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "python.analysis.pythonPath": "C:\\Users\\MEGA\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "python.languageServer": "Pylance",
+    "pyre2.pythonPath": "C:\\Users\\MEGA\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "python.analysis.extraPaths": [
+        "d:\\mlproject"
+    ]
+}

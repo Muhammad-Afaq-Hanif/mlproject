@@ -1,0 +1,342 @@
+/*
+ * EduScore Analytics — Design System  (Dark Theme defaults)
+ * All component styles use CSS custom properties defined below.
+ * For Light Mode, assets/theme_light.css overrides these :root values.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ── Dark-mode variable defaults (:root = dark) ───────────────────────────── */
+:root {
+    --bg-app: #0d1117;
+    --bg-surface: #161b22;
+    --bg-surface-2: #1c2128;
+    --bg-input: #0d1117;
+    --border: #30363d;
+    --border-subtle: #21262d;
+    --border-focus: #58a6ff;
+    --divider: #21262d;
+
+    --text-primary: #e6edf3;
+    --text-secondary: #8b949e;
+    --text-muted: #484f58;
+    --text-on-accent: #ffffff;
+
+    --accent: #3fb950;
+    --accent-muted: rgba(63, 185, 80, 0.12);
+    --accent-blue: #58a6ff;
+    --accent-blue-muted: rgba(88, 166, 255, 0.12);
+    --accent-purple: #d2a8ff;
+    --accent-orange: #db6d28;
+    --accent-red: #f85149;
+    --accent-yellow: #e3b341;
+
+    --gradient-cta: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+    --gradient-cta-h: linear-gradient(135deg, #2ea043 0%, #3fb950 100%);
+    --gradient-card: linear-gradient(145deg, #161b22 0%, #1c2128 100%);
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, .35);
+    --shadow-md: 0 8px 28px rgba(0, 0, 0, .45);
+    --shadow-glow-blue: 0 0 20px rgba(88, 166, 255, .15);
+    --shadow-cta: 0 4px 15px rgba(35, 134, 54, .4);
+
+    --chart-grid: #21262d;
+    --chart-text: #8b949e;
+
+    --result-bg: linear-gradient(145deg, #0d2818, #1a4731);
+    --result-border: #238636;
+    --result-text: #3fb950;
+}
+
+/* ── Base ─────────────────────────────────────────────────────────────────── */
+html,
+body,
+[class*="css"] {
+    font-family: 'Inter', sans-serif !important;
+}
+
+.stApp {
+    background: var(--bg-app) !important;
+    transition: background .3s ease, color .3s ease;
+}
+
+section[data-testid="stSidebar"] {
+    background: var(--bg-surface) !important;
+    border-right: 1px solid var(--border-subtle) !important;
+    transition: background .3s ease;
+}
+
+/* ── Tabs ─────────────────────────────────────────────────────────────────── */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 5px;
+    background: var(--bg-surface);
+    padding: 7px 11px;
+    border-radius: 14px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-sm);
+}
+
+.stTabs [data-baseweb="tab"] {
+    height: 40px;
+    padding: 0 18px;
+    background: transparent;
+    border-radius: 10px;
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+    font-size: 14px;
+    border: none !important;
+    transition: all .2s cubic-bezier(.4, 0, .2, 1);
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    background: var(--bg-surface-2);
+    color: var(--text-primary) !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background: var(--gradient-cta) !important;
+    color: var(--text-on-accent) !important;
+    font-weight: 600;
+    box-shadow: var(--shadow-cta);
+}
+
+/* ── KPI Cards ────────────────────────────────────────────────────────────── */
+.kpi-card {
+    background: var(--gradient-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 22px 18px;
+    text-align: center;
+    transition: all .3s cubic-bezier(.4, 0, .2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--kpi-accent, var(--gradient-cta));
+    border-radius: 16px 16px 0 0;
+}
+
+.kpi-card:hover {
+    border-color: var(--accent-blue);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow-blue), var(--shadow-md);
+}
+
+.kpi-value {
+    font-size: 2.3rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    line-height: 1.1;
+    letter-spacing: -.02em;
+}
+
+.kpi-label {
+    font-size: .72rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-top: 8px;
+}
+
+.kpi-delta {
+    font-size: .8rem;
+    font-weight: 600;
+    margin-top: 6px;
+    padding: 2px 10px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.delta-pos {
+    color: var(--accent);
+    background: var(--accent-muted);
+}
+
+.delta-neg {
+    color: var(--accent-red);
+    background: rgba(248, 81, 73, .1);
+}
+
+/* ── Section Header ───────────────────────────────────────────────────────── */
+.section-header {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    border-left: 4px solid var(--accent);
+    padding-left: 13px;
+    margin: 26px 0 16px;
+    letter-spacing: -.01em;
+}
+
+/* ── Insight Box ──────────────────────────────────────────────────────────── */
+.insight-box {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-left: 4px solid var(--accent-blue);
+    border-radius: 12px;
+    padding: 15px 18px;
+    margin: 10px 0;
+    color: var(--text-primary);
+    font-size: .88rem;
+    line-height: 1.65;
+    box-shadow: var(--shadow-sm);
+    transition: all .25s ease;
+}
+
+.insight-box:hover {
+    border-left-color: var(--accent);
+    transform: translateX(3px);
+    box-shadow: var(--shadow-md);
+}
+
+.insight-icon {
+    font-size: 1.1rem;
+    margin-right: 9px;
+    vertical-align: middle;
+}
+
+/* ── Prediction Result ────────────────────────────────────────────────────── */
+.result-banner {
+    background: var(--result-bg);
+    border: 2px solid var(--result-border);
+    border-radius: 20px;
+    padding: 28px 32px;
+    text-align: center;
+    margin-top: 22px;
+    box-shadow: var(--shadow-md);
+}
+
+.result-score {
+    font-size: 3.8rem;
+    font-weight: 900;
+    color: var(--result-text);
+    letter-spacing: -.03em;
+}
+
+.result-label {
+    font-size: .9rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.percentile-pill {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--bg-surface-2);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 7px 22px;
+    font-size: .88rem;
+    color: var(--accent-blue);
+    font-weight: 700;
+}
+
+/* ── Button ───────────────────────────────────────────────────────────────── */
+.stButton>button {
+    background: var(--gradient-cta) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 14px 40px !important;
+    font-size: 1.02rem !important;
+    cursor: pointer !important;
+    width: 100% !important;
+    box-shadow: var(--shadow-cta) !important;
+    transition: all .3s cubic-bezier(.4, 0, .2, 1) !important;
+    letter-spacing: .02em !important;
+}
+
+.stButton>button:hover {
+    background: var(--gradient-cta-h) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 26px rgba(35, 134, 54, .5) !important;
+}
+
+/* ── Sidebar KPI ──────────────────────────────────────────────────────────── */
+.sidebar-kpi {
+    text-align: center;
+    padding: 8px 0;
+    transition: transform .2s ease;
+}
+
+.sidebar-kpi:hover {
+    transform: scale(1.06);
+}
+
+.sidebar-kpi-val {
+    font-size: 1.55rem;
+    font-weight: 900;
+    color: var(--accent-blue);
+    letter-spacing: -.02em;
+}
+
+.sidebar-kpi-lab {
+    font-size: .7rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 600;
+}
+
+/* ── Forms ────────────────────────────────────────────────────────────────── */
+[data-testid="stForm"] {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* ── Charts ───────────────────────────────────────────────────────────────── */
+.stPlotlyChart {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.stPlotlyChart:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-app);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* ── Utilities ────────────────────────────────────────────────────────────── */
+#MainMenu,
+footer,
+header {
+    visibility: hidden;
+}
+
+.block-container {
+    padding-top: 1.5rem !important;
+}

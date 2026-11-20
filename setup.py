@@ -1,15 +1,15 @@
 from setuptools import find_packages, setup
 
-def load_requirements(filename):
-    with open(filename) as file:
-        return file.read().splitlines()
-    
+with open("requirements.txt") as f:
+    requirements = [line.strip() for line in f if line.strip()]
 
 setup(
-    name = 'ML_Project',
-    version = '1.0',
-    author = "Muhammad Afaq Hanif",
-    author_email = "afaqmuhammad74@gmail.com",
-    packages= find_packages(),
-    install_requires = load_requirements('requirements.txt')
+    name="eduscore-predictor",
+    version="2.0.0",
+    description="Student math score prediction and analytics dashboard",
+    author="Muhammad Afaq Hanif",
+    author_email="afaqmuhammad74@gmail.com",
+    packages=find_packages(where=".", exclude=["tests*", "notebooks*"]),
+    install_requires=requirements,
+    python_requires=">=3.10",
 )

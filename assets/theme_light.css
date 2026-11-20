@@ -1,0 +1,46 @@
+/*
+ * EduScore Analytics — Light Theme Override
+ * Loaded in addition to style.css when the user selects Light Mode.
+ * Overrides all :root CSS custom properties from style.css.
+ */
+
+:root {
+    --bg-app: #f6f8fa;
+    --bg-surface: #ffffff;
+    --bg-surface-2: #f0f3f6;
+    --bg-input: #ffffff;
+    --border: #d0d7de;
+    --border-subtle: #e1e4e8;
+    --border-focus: #0969da;
+    --divider: #e1e4e8;
+
+    --text-primary: #1f2328;
+    --text-secondary: #59636e;
+    --text-muted: #8b949e;
+    --text-on-accent: #ffffff;
+
+    --accent: #1a7f37;
+    --accent-muted: rgba(26, 127, 55, .09);
+    --accent-blue: #0969da;
+    --accent-blue-muted: rgba(9, 105, 218, .09);
+    --accent-purple: #8250df;
+    --accent-orange: #bf5600;
+    --accent-red: #cf222e;
+    --accent-yellow: #9a6700;
+
+    --gradient-cta: linear-gradient(135deg, #1a7f37 0%, #2da44e 100%);
+    --gradient-cta-h: linear-gradient(135deg, #2da44e 0%, #3fb950 100%);
+    --gradient-card: linear-gradient(145deg, #ffffff 0%, #f6f8fa 100%);
+
+    --shadow-sm: 0 1px 4px rgba(27, 31, 36, .1);
+    --shadow-md: 0 8px 24px rgba(27, 31, 36, .12);
+    --shadow-glow-blue: 0 0 16px rgba(9, 105, 218, .12);
+    --shadow-cta: 0 4px 14px rgba(26, 127, 55, .3);
+
+    --chart-grid: #e1e4e8;
+    --chart-text: #59636e;
+
+    --result-bg: linear-gradient(145deg, #dafbe1, #dcffe4);
+    --result-border: #2da44e;
+    --result-text: #1a7f37;
+}
